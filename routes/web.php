@@ -29,10 +29,20 @@ Route::get('/user', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::resource('/user/user', UserController::class)->middleware(['auth', 'manager']);
 Route::resource('/user/user', UserController::class)->middleware('admin');
+
 Route::resource('/user/task', TaskController::class)->middleware('Member', 'manager');
+Route::resource('/user/task', TaskController::class)->middleware('auth');
+
 Route::resource('/user/taskk', TaskkController::class)->middleware('Member', 'manager');
+Route::resource('/user/taskk', TaskkController::class)->middleware('auth');
+
 Route::resource('/user/taskkk', TaskkkController::class)->middleware('Member', 'manager');
+Route::resource('/user/taskkk', TaskkkController::class)->middleware('auth');
+
 Route::resource('/user/taskkkk', TaskkkkController::class)->middleware('Member', 'manager');
+Route::resource('/user/taskkkk', TaskkkkController::class)->middleware('auth');
+
 Route::resource('/user/taskkkkk', TaskkkkkController::class)->middleware('Member', 'manager');
+Route::resource('/user/taskkkkk', TaskkkkkController::class)->middleware('auth');
 
 
