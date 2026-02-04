@@ -24,11 +24,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrapFive();
 
-        Gate::define('checking', function(User $user) {
-            return $user->admin;
-            return $user->project_manager;
-        });
-        
         Gate::define('access', function(User $user) {
             return $user->member;
             return $user->project_manager;
@@ -43,6 +38,11 @@ class AppServiceProvider extends ServiceProvider
         });
         
         Gate::define('manager', function(User $user) {
+            return $user->project_manager;
+        });
+
+        Gate::define('success', function(User $user) {
+            return $user->admin;
             return $user->project_manager;
         });
     }

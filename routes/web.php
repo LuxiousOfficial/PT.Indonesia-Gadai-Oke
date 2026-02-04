@@ -27,7 +27,8 @@ return view('home');
 
 Route::get('/user', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::resource('/user/user', UserController::class)->middleware(['auth', 'admin', 'manager']);
+Route::resource('/user/user', UserController::class)->middleware(['auth', 'manager']);
+Route::resource('/user/user', UserController::class)->middleware('admin');
 Route::resource('/user/task', TaskController::class)->middleware('Member', 'manager');
 Route::resource('/user/taskk', TaskkController::class)->middleware('Member', 'manager');
 Route::resource('/user/taskkk', TaskkkController::class)->middleware('Member', 'manager');

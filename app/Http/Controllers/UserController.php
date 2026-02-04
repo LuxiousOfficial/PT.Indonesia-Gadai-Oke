@@ -14,11 +14,11 @@ class UserController extends Controller
      */
     public function index(User $user)
     {
-        Gate::authorize('admin', $user);
-        // Gate::define('checking', function (User $user) {
-        //     // Izinkan jika role adalah admin ATAU editor
-        //     return $user->hasRole(['manager', 'admin']);
-        // });
+        // Gate::authorize('admin', $user);
+        Gate::define('success', function (User $user) {
+            // Izinkan jika role adalah admin ATAU editor
+            return $user->hasRole(['manager', 'admin']);
+        });
         return view('user/user/index', [
             'users' => User::latest('id')->get()
         ]);
@@ -29,11 +29,11 @@ class UserController extends Controller
      */
     public function create(User $user)
     {
-        Gate::authorize('admin', $user);
-        // Gate::define('checking', function (User $user) {
-        //     // Izinkan jika role adalah admin ATAU editor
-        //     return $user->hasRole(['manager', 'admin']);
-        // });
+        // Gate::authorize('admin', $user);
+        Gate::define('success', function (User $user) {
+            // Izinkan jika role adalah admin ATAU editor
+            return $user->hasRole(['manager', 'admin']);
+        });
         return view('user/user/create');
     }
 
@@ -59,11 +59,11 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        Gate::authorize('admin', $user);
-        // Gate::define('checking', function (User $user) {
-        //     // Izinkan jika role adalah admin ATAU editor
-        //     return $user->hasRole(['manager', 'admin']);
-        // });
+        // Gate::authorize('admin', $user);
+        Gate::define('success', function (User $user) {
+            // Izinkan jika role adalah admin ATAU editor
+            return $user->hasRole(['manager', 'admin']);
+        });
         return view('user/user/show', [
             'user' => $user
         ]);
@@ -74,11 +74,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        Gate::authorize('admin', $user);
-        // Gate::define('checking', function (User $user) {
-        //     // Izinkan jika role adalah admin ATAU editor
-        //     return $user->hasRole(['manager', 'admin']);
-        // });
+        // Gate::authorize('admin', $user);
+        Gate::define('success', function (User $user) {
+            // Izinkan jika role adalah admin ATAU editor
+            return $user->hasRole(['manager', 'admin']);
+        });
         return view('user/user/edit', [
             'user' => $user
         ]);
@@ -89,11 +89,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        Gate::authorize('admin', $user);
-        // Gate::define('checking', function (User $user) {
-        //     // Izinkan jika role adalah admin ATAU editor
-        //     return $user->hasRole(['manager', 'admin']);
-        // });
+        // Gate::authorize('admin', $user);
+        Gate::define('success', function (User $user) {
+            // Izinkan jika role adalah admin ATAU editor
+            return $user->hasRole(['manager', 'admin']);
+        });
         $rules = [
             'name' => 'required|max:200',
             'password' => 'required|min:5|max:200',
@@ -118,11 +118,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        Gate::authorize('admin', $user);
-        // Gate::define('checking', function (User $user) {
-        //     // Izinkan jika role adalah admin ATAU editor
-        //     return $user->hasRole(['manager', 'admin']);
-        // });
+        // Gate::authorize('admin', $user);
+        Gate::define('success', function (User $user) {
+            // Izinkan jika role adalah admin ATAU editor
+            return $user->hasRole(['manager', 'admin']);
+        });
         User::destroy($user->id);
         return redirect('/user/user')->with('success', 'Data berhasil dihapus');
     }
