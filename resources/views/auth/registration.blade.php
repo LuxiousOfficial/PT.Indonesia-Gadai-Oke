@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/registration.css">
-<title>PT. Astra Honda Motor || Registrasi</title>
+<title>PT. Indonesia Gadai Oke || Registration</title>
 <x-form>
   <section class="form-registrasi">
     <div class="container-fluid h-custom">

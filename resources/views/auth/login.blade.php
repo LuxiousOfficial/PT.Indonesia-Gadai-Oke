@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/login.css">
-<title>PT. Astra Honda Motor || Login</title>
+<title>PT. Indonesia Gadai Oke || Login</title>
 <x-form>
     @if (session()->has('success'))
     <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
